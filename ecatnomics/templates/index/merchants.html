@@ -10,6 +10,11 @@
         <a href="/cat/{{cat.id}}"><img src="{% static cat.image %}" height="200" border="3"></a>
     {% endfor %}
     <script>
-        document.getElementsByTagName('section') [0].style.backgroundImage = "url({% static 'store.png' %})";
+        var section = document.getElementsByTagName('section') [0];
+        section.style.backgroundImage = "url({% static 'store.png' %})";
+        section.style.backgroundSize = "80% 80%";
+        section.style.backgroundRepeat = "no-repeat";
+        section.style.backgroundColor = "#D1D1D1";
+        section.style.backgroundPosition = "50% 0";
     </script>
 {% endblock %}
