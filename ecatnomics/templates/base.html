@@ -30,6 +30,8 @@
 		    padding:10px;
 			position: relative;
 			min-height: 500px;
+			background-image: url({% static 'bg.png' %});
+			background-size: cover;
 		}
 		#content {
 		    position: absolute;
@@ -38,6 +40,10 @@
 		    width: 100%;
 		    color: white;
 		    font-family: Georgia;
+		    text-align: center;
+		}
+		#content ul {
+			text-align: left;
 		}
 		nav ul {
 			list-style: none;
@@ -57,7 +63,7 @@
   	<header>
 		<a href="/"><h1>eCATnomics: Fusing cat collecting and Capital One banking into one game </h1></a>
 	</header>
-	<section style="background-image: url({% static 'bg.png' %}); background-size: cover">
+	<section>
 		<div id="content">
 			{% block content %}{% endblock %}
 		</div>
@@ -71,7 +77,7 @@
 		</ul>
 	</nav>
 	<div style="clear: both;"></div>
-	<div style="background-image: url(http://desktopbackgrounds4u.com/wp-content/gallery/office-background-images/titan16_large.jpg); background-size:cover"> </div>
+	<div style="background-image: url(http://desktopbackgrounds4u.com/wp-content/gallery/office-background-images/titan16_large.jpg); background-size:cover"></div>
 	<footer>
 		HackTJ 2016
 	</footer>
