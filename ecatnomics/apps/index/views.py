@@ -5,6 +5,14 @@ from django.views import generic
 
 import requests
 
+def customer_info(id):
+    r = requests.get('http://api.reimaginebanking.com/customers/' + id + '?key=813882c1bc1595ded762f6bb22bd9ee0')
+    customer = r.json()
+    r = requests.get('http://api.reimaginebanking.com/customers/' + id + '/accounts?key=813882c1bc1595ded762f6bb22bd9ee0')
+    customer['accounts'] = r.json()
+
+    return customer
+
 class IndexView(generic.TemplateView):
     template_name = 'index/index.html'
 
@@ -21,8 +29,7 @@ class CustomerView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(CustomerView, self).get_context_data(**kwargs)
-        r = requests.get('http://api.reimaginebanking.com/customers/' + self.kwargs['pk'] + '?key=813882c1bc1595ded762f6bb22bd9ee0')
-        context['api'] = r.json()
+        context['api'] = customer_info(self.kwargs['pk'])
         return context
 
 class MerchantsIndexView(generic.TemplateView):
