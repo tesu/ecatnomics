@@ -7,4 +7,7 @@
     {% for cat in api %}
         <a href="/cat/{{cat.id}}"><img src="{% static cat.image %}" height=200 border=3></a>
     {% endfor %}
+    <script>
+        document.getElementsByTagName('section') [0].style.backgroundImage = "url({% static 'store.png' %})";
+    </script>
 {% endblock %}
