@@ -1,102 +1,102 @@
-{% load staticfiles %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>eCATnomics Hackathon Webapp</title>
-	<style type="text/css">
-		a:link, a:visited {
-			color: #11B7D2;
-		}
-		html {
-			background-color: #eee;
-		}
-		body {
-			font-family: Georgia;
-		}
-		header {
-		    background-color:black;
-		    color:white;
-		    text-align:center;
-		    padding:5px;
-		}
-		nav {
-		    line-height:30px;
-		    background-color:#eee;
-		    margin-left:80%;
-		    padding:5px;
-		    text-align: center;
-		}
-		section {
-			float: left;
-		    width:80%;
-		    padding:10px;
-			position: relative;
-			min-height: 500px;
-			background-image: url({% static 'bg.png' %});
-			background-size: cover;
-		}
-		#store {
-		    position: absolute;
-		    top: 112px;
-		    font-size: 30px;
-		    left: 0;
-		    right: 0;
-		    text-align: center;
-		}
-		#location {
-		    position: absolute;
-		    top: 155px;
-		    left: 0;
-		    right: 0;
-		    text-align: center;
-		}
-		#content {
-		    position: absolute;
-		    left: 0;
-		    bottom: 28px;
-		    width: 100%;
-		    color: white;
-		    font-family: Georgia;
-		    text-align: center;
-		}
-		#content ul {
-			text-align: left;
-		}
-		nav ul {
-			list-style: none;
-			padding-left: 0;
-		}
-		footer {
-			height: 28px;
-		    background-color:black;
-		    color:white;
-		    clear:both;
-		    text-align:center;
-		    padding:5px;
-		}
-	</style>
-  </head>
-  <body>
-  	<header>
-		<h1>eCATnomics = cat collecting + Capital One banking</h1>
-	</header>
-	<section>
-		{% block location %}{% endblock %}
+<head>
+  <title>eCATnomics</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-3 { 
+      background-color: #ffffff; /* White */
+      color: #555555;
+  }
+  .bg-4 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/">Main Page</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">WHO</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">    
+  <h3 class="margin">eCATnomics = cat collecting + Capital One banking</h3><br>
+  <div class="row">
+    <div class="col-sm-8">
+           {% block location %}{% endblock %}
 		<div id="content">
 			{% block content %}{% endblock %}
-		</div>
-	</section>
-	<nav>
-		<h2>Navigation</h2>
+		</div>  
+     </div>
+
+    <div class="col-sm-4"> 
+         <h2>Navigation</h2>
 		<ul>
 			<li><a href="/">Index</a>
 			<li><a href="/merchants">Merchants</a>
 			<li><a href="/faq">FAQ</a>
 		</ul>
-	</nav>
-	<div style="clear: both;"></div>
-	<footer>
-		HackTJ 2016
-	</footer>
-  </body>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>HackTJ 2016</p> 
+</footer>
+
+</body>
 </html>
