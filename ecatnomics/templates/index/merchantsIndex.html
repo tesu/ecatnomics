@@ -3,7 +3,7 @@
 {% block content %}
     <ul>
     {% for merchant in api %}
-        <a href="merchant/{{merchant.id}}">{{ merchant.name }} {{ merchant.category }}</a>
+        <li><a href="merchant/{{merchant.id}}">{{ merchant.name }}</a>
     {% endfor %}
     </ul>
 {% endblock %}
