@@ -92,3 +92,31 @@ class MerchantsView(generic.TemplateView):
         for cat in api:
             context['api'].append(customer_info(cat['_id']))
         return context
+
+class ATMIndexView(generic.TemplateView):
+    template_name = 'index/ATMIndex.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ATMIndexView, self).get_context_data(**kwargs)
+        r = requests.get('http://api.reimaginebanking.com/ATM?key='+apikey)
+        temp = r.json()
+        context['api'] = []
+        for i in range(10):
+            context['api'].append(temp[random.randint(0,len(temp))])
+            context['api'][i-1]['id'] = context['api'][i-1]['_id']
+        return context
+
+class ATMView(generic.TemplateView):
+    template_name = 'index/ATM.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ATMView, self).get_context_data(**kwargs)
+        r = requests.get('http://api.reimaginebanking.com/ATM/' + self.kwargs['pk'] + '?key='+apikey)
+        context['ATM'] = r.json()
+        r = requests.get('http://api.reimaginebanking.com/customers?key='+apikey)
+        api = r.json()
+        context['api'] = []
+
+        for cat in api:
+            context['api'].append(customer_info(cat['_id']))
+        return context
