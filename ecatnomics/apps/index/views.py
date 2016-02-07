@@ -62,10 +62,17 @@ class MerchantsIndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(MerchantsIndexView, self).get_context_data(**kwargs)
         r = requests.get('http://api.reimaginebanking.com/merchants?key=813882c1bc1595ded762f6bb22bd9ee0')
+        temp[] = r.json().
+        for merchant in temp['api']:
+            merchant['id'] = merchant['_id']
+        for i in range(10):
+        	content['api']=temp[randint(0,len(temp))]
+        '''
         context['api'] = r.json()
         for merchant in context['api']:
             merchant['id'] = merchant['_id']
         context['api']=context['api'][0:10]
+       	'''
         return context
 
 class MerchantsView(generic.TemplateView):
