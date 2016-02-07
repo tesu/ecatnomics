@@ -2,9 +2,7 @@
 {% load staticfiles %}
 
 {% block content %}
-    <ul>
     {% for cat in api %}
-        <li><a href="/cat/{{cat.id}}">{{ cat.first_name }} {{ cat.last_name }} <img src="{% static cat.image %}"></a>
+        <a href="/cat/{{cat.id}}"><img src="{% static cat.image %}" height=200 border=3></a>
     {% endfor %}
-    </ul>
 {% endblock %}
