@@ -4,7 +4,7 @@
 {% block content %}
     <ul>
     {% for cat in api %}
-        <li><a href="/cat/{{cat.id}}">{{ cat.first_name }} {{ cat.last_name }} <img src="{% static cat.image %}" width=150></a>
+        <li><a href="/cat/{{cat.id}}"><img src="{% static cat.image %}" width=150 border=5></a>
     {% endfor %}
     </ul>
 {% endblock %}
