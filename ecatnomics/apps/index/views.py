@@ -13,7 +13,7 @@ def customer_info(id):
     customer['accounts'] = r.json()
     o = 0
     for account in customer['accounts']:
-        o += account.balance
+        o += account['balance']
     customer['worth'] = o
 
     random.seed(customer.first_name + customer.last_name)
