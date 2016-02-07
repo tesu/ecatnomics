@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-{{ api.name }}
-{{ api.category }}
-{{ api.address }}
+{{ api.name }}<br>
+{{ api.address.city }} {{ api.address.zip }}
 {% endblock %}
