@@ -6,7 +6,6 @@ from django.views import generic
 import requests
 
 class IndexView(generic.TemplateView):
-
     template_name = 'index/index.html'
 
     def get_context_data(self, **kwargs):
@@ -21,5 +20,6 @@ class CustomerView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(CustomerView, self).get_context_data(**kwargs)
         r = requests.get('http://api.reimaginebanking.com/customers/' + self.kwargs['pk'] + '?key=813882c1bc1595ded762f6bb22bd9ee0')
-        context['api'] = r.text
+        context['api'] = r.json()
         return context
+
