@@ -34,6 +34,7 @@ class MerchantsIndexView(generic.TemplateView):
         context['api'] = r.json()
         for merchant in context['api']:
             merchant['id'] = merchant['_id']
+        context=context[0:10]
         return context
 
 class MerchantsView(generic.TemplateView):
