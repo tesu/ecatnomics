@@ -6,6 +6,12 @@ from django.views import generic
 import os, random
 import requests
 
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+
+def back(request, page, **kwargs):
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', reverse(page, kwargs=kwargs)))
+
 def customer_info(id):
     r = requests.get('http://api.reimaginebanking.com/customers/' + id + '?key=813882c1bc1595ded762f6bb22bd9ee0')
     customer = r.json()
@@ -21,6 +27,10 @@ def customer_info(id):
     customer['image'] = 'cats/' + random.choice(os.listdir(os.path.join(os.path.abspath(os.path.dirname(__file__)),'../../static/cats/')))
 
     return customer
+
+# def idk_lol(request, id):
+#     requests.post('http://api.reimaginebanking.com/customers/' + id + '/accounts?key=813882c1bc1595ded762f6bb22bd9ee0)')
+#     return back(request, 'index:index')
 
 class IndexView(generic.TemplateView):
     template_name = 'index/index.html'

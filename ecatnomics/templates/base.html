@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,8 +37,8 @@
   	<header>
 		<a href="/"><h1>eCATnomics: Fusing cat collecting and Capital One banking into one game </h1></a>
 	</header>
-	<section>
-		<h1>Block Content</h1>
+	<section style="background-image: url({% static 'bg.png' %}); background-size: cover">
+		<h1></h1>
 		<h2>{% block content %}{% endblock %}</h2>
 	</section>
 	<nav>
