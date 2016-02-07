@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+    {% for atm in api %}
+        <li><a href="/atm/{{atm.id}}">{{ atm.name }}</a>
+    {% endfor %}
+    </ul>
+{% endblock %}
