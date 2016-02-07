@@ -16,7 +16,7 @@ def customer_info(id):
         o += account['balance']
     customer['worth'] = o
 
-    random.seed(customer.first_name + customer.last_name)
+    random.seed(customer['first_name'] + customer['last_name'])
     customer['image'] = random.choice(os.listdir('../../static/cats/'))
 
     return customer
