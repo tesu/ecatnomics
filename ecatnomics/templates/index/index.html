@@ -3,6 +3,6 @@
 
 {% block content %}
     {% for cat in api %}
-        <a href="/cat/{{cat.id}}"><img src="{% static cat.image %}" height=200 border=5></a>
+        <a href="/cat/{{cat.id}}"><img src="{% static cat.image %}" height=200 border=3></a>
     {% endfor %}
 {% endblock %}
