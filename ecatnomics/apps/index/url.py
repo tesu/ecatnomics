@@ -11,5 +11,5 @@ urlpatterns = [
     url(r'^merchants/?$', views.MerchantsIndexView.as_view(), name="merchantsIndex"),
     url(r'^merchant/(?P<pk>[a-zA-Z0-9]+)/?$', views.MerchantsView.as_view(), name="merchants"),
     url(r'^atm/?$', views.ATMIndexView.as_view(), name="atmIndex"),
-    url(r'^atm/(?P<pk>[a-zA-Z0-9]+)/?$', views.MerchantsView.as_view(), name="atm"),
+    url(r'^atm/(?P<pk>[a-zA-Z0-9]+)/?$', views.ATMView.as_view(), name="atm"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
