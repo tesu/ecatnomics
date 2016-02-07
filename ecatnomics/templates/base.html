@@ -6,7 +6,6 @@
 	<!-- VIDEO CSS -->
 	<style type="text/css">
 		body {
-			position: relative;
 		}
 		header {
 		    background-color:black;
@@ -16,18 +15,23 @@
 		}
 		nav {
 		    line-height:30px;
-		    background-color:#eeeeee;
+		    background-color:#eee;
 		    height:300px;
 		    margin-left:80%;
 		    padding:5px;
 		    text-align: center;
 		}
 		section {
+			float: left;
 		    width:80%;
 		    padding:10px;
+			position: relative;
+		}
+		#content {
 		    position: absolute;
 		    left: 0;
 		    bottom: 28px;
+		    width: 100%;
 		}
 		nav ul {
 			list-style: none;
@@ -47,7 +51,9 @@
 		<a href="/"><h1>eCATnomics: Fusing cat collecting and Capital One banking into one game </h1></a>
 	</header>
 	<section style="background-image: url({% static 'bg.png' %}); background-size: cover">
-		{% block content %}{% endblock %}
+		<div id="content">
+			{% block content %}{% endblock %}
+		</div>
 	</section>
 	<nav>
 		<h2>Navigation</h2>
