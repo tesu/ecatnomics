@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name="index"),
+    url(r'^cat/(?P<pk>[0-9]+)/?$', views.CustomerView.as_view(), name="customer"),
 ]
