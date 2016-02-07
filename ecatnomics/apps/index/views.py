@@ -67,6 +67,7 @@ class MerchantsIndexView(generic.TemplateView):
         context['api'] = []
         for i in range(10):
         	context['api'].append(temp[random.randint(0,len(temp))])
+            context['api'][i]['id'] = context['api'][i]['_id']
         '''
         context['api'] = r.json()
         for merchant in context['api']:
