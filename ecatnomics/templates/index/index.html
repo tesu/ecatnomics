@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for cat in api %}
-    <a href="cat/{{cat.id}}">{{ cat }}</a>
-{% endfor %}
+    <ul>
+    {% for cat in api %}
+        <a href="cat/{{cat.id}}">{{ cat.first_name }} {{ cat.last_name }}</a>
+    {% endfor %}
+    </ul>
 {% endblock %}
