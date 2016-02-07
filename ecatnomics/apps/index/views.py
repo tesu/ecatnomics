@@ -5,6 +5,7 @@ from django.views import generic
 
 import os, random
 import requests
+import random
 
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -66,7 +67,7 @@ class MerchantsIndexView(generic.TemplateView):
         for merchant in temp['api']:
             merchant['id'] = merchant['_id']
         for i in range(10):
-        	content['api']=temp[randint(0,len(temp))]
+        	content['api'][i]=temp[randint(0,len(temp))]
         '''
         context['api'] = r.json()
         for merchant in context['api']:
