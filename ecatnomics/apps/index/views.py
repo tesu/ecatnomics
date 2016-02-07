@@ -10,14 +10,16 @@ import random
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
+apikey="813882c1bc1595ded762f6bb22bd9ee0"
+
 def back(request, page, **kwargs):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', reverse(page, kwargs=kwargs)))
 
 def customer_info(id):
-    r = requests.get('http://api.reimaginebanking.com/customers/' + id + '?key=813882c1bc1595ded762f6bb22bd9ee0')
+    r = requests.get('http://api.reimaginebanking.com/customers/' + id + '?key=' + apikey)
     customer = r.json()
     customer['id'] = customer['_id']
-    r = requests.get('http://api.reimaginebanking.com/customers/' + id + '/accounts?key=813882c1bc1595ded762f6bb22bd9ee0')
+    r = requests.get('http://api.reimaginebanking.com/customers/' + id + '/accounts?key=' + apikey)
     customer['accounts'] = r.json()
     o = 0
     for account in customer['accounts']:
@@ -30,7 +32,7 @@ def customer_info(id):
     return customer
 
 # def idk_lol(request, id):
-#     requests.post('http://api.reimaginebanking.com/customers/' + id + '/accounts?key=813882c1bc1595ded762f6bb22bd9ee0)')
+#     requests.post('http://api.reimaginebanking.com/customers/' + id + '/accounts?key=)'+apikey)
 #     return back(request, 'index:index')
 
 class IndexView(generic.TemplateView):
@@ -38,7 +40,7 @@ class IndexView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        r = requests.get('http://api.reimaginebanking.com/customers?key=813882c1bc1595ded762f6bb22bd9ee0')
+        r = requests.get('http://api.reimaginebanking.com/customers?key=' + apikey)
         api = r.json()
         context['api'] = []
 
@@ -62,7 +64,7 @@ class MerchantsIndexView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(MerchantsIndexView, self).get_context_data(**kwargs)
-        r = requests.get('http://api.reimaginebanking.com/merchants?key=813882c1bc1595ded762f6bb22bd9ee0')
+        r = requests.get('http://api.reimaginebanking.com/merchants?key='+apikey)
         temp[] = r.json().
         for merchant in temp['api']:
             merchant['id'] = merchant['_id']
@@ -81,9 +83,9 @@ class MerchantsView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(MerchantsView, self).get_context_data(**kwargs)
-        r = requests.get('http://api.reimaginebanking.com/merchants/' + self.kwargs['pk'] + '?key=813882c1bc1595ded762f6bb22bd9ee0')
+        r = requests.get('http://api.reimaginebanking.com/merchants/' + self.kwargs['pk'] + '?key='+apikey)
         context['merchant'] = r.json()
-        r = requests.get('http://api.reimaginebanking.com/customers?key=813882c1bc1595ded762f6bb22bd9ee0')
+        r = requests.get('http://api.reimaginebanking.com/customers?key='+apikey)
         api = r.json()
         context['api'] = []
 
