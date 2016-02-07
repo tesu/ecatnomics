@@ -5,6 +5,7 @@
 <ul>
 {% for account in api.accounts %}
     <li>{{ account.nickname }} - ${{ account.balance }}
+        {{ account.image }}
 {% endfor %}
 </ul>
 {% endblock %}

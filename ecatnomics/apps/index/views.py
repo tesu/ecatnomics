@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
 
+import os, random
 import requests
 
 def customer_info(id):
@@ -10,6 +11,13 @@ def customer_info(id):
     customer = r.json()
     r = requests.get('http://api.reimaginebanking.com/customers/' + id + '/accounts?key=813882c1bc1595ded762f6bb22bd9ee0')
     customer['accounts'] = r.json()
+    o = 0
+    for account in customer['accounts']:
+        o += account.balance
+    customer['worth'] = o
+
+    random.seed(customer.first_name + customer.last_name)
+    customer['image'] = random.choice(os.listdir('../../static/cats/'))
 
     return customer
 
