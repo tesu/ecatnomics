@@ -23,3 +23,21 @@ class CustomerView(generic.TemplateView):
         r = requests.get('http://api.reimaginebanking.com/customers/' + self.kwargs['pk'] + '?key=813882c1bc1595ded762f6bb22bd9ee0')
         context['api'] = r.text
         return context
+
+class ShopIndexView(generic.TemplateView):
+    template_name = 'index/shopIndex.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ShopIndexView, self).get_context_data(**kwargs)
+        r = requests.get('http://api.reimaginebanking.com/merchants?key=813882c1bc1595ded762f6bb22bd9ee0')
+        context['api'] = r.text
+        return context
+
+class ShopView(generic.TemplateView):
+    template_name = 'index/shop.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ShopView, self).get_context_data(**kwargs)
+        r = requests.get('http://api.reimaginebanking.com/merchants/' + self.kwargs['pk'] + '?key=813882c1bc1595ded762f6bb22bd9ee0')
+        context['api'] = r.text
+        return context
