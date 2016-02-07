@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name="index"),
-    url(r'^cat/(?P<pk>[0-9]+)/?$', views.CustomerView.as_view(), name="customer"),
+    url(r'^cat/(?P<pk>[a-zA-Z0-9]+)/?$', views.CustomerView.as_view(), name="customer"),
 ]

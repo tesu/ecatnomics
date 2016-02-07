@@ -20,6 +20,6 @@ class CustomerView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
-        r = requests.get('http://api.reimaginebanking.com/customers/' + self.kwargs['pk'] + ?key=813882c1bc1595ded762f6bb22bd9ee0')
+        r = requests.get('http://api.reimaginebanking.com/customers/' + self.kwargs['pk'] + '?key=813882c1bc1595ded762f6bb22bd9ee0')
         context['api'] = r.text
         return context
