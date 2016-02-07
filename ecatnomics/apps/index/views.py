@@ -99,7 +99,7 @@ class ATMIndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(ATMIndexView, self).get_context_data(**kwargs)
         r = requests.get('http://api.reimaginebanking.com/atms?key='+apikey)
-        temp = r.json()
+        temp = r.json() ['data']
         context['api'] = []
         for i in range(10):
             context['api'].append(temp[random.randint(0,len(temp))])
