@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-{{ api.name }}<br>
-{{ api.address.city }} {{ api.address.state }}, {{ api.address.zip }}
+    {{ merchant.name }}<br>
+    {{ merchant.address.city }} {{ merchant.address.state }}, {{ merchant.address.zip }}
+    {% for cat in api %}
+        <a href="/cat/{{cat.id}}"><img src="{% static cat.image %}" height=200 border=3></a>
+    {% endfor %}
 {% endblock %}
