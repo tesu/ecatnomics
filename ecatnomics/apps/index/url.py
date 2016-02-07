@@ -6,6 +6,4 @@ urlpatterns = [
     url(r'^cat/(?P<pk>[a-zA-Z0-9]+)/?$', views.CustomerView.as_view(), name="customer"),
     url(r'^merchants/?$', views.MerchantsIndexView.as_view(), name="merchantsIndex"),
     url(r'^merchant/(?P<pk>[a-zA-Z0-9]+)/?$', views.MerchantsView.as_view(), name="merchants"),
-]
-
-urlpatterns += staticfiles_urlpatterns()
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
