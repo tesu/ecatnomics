@@ -6,6 +6,23 @@
      	  <source src="https://video.wixstatic.com/video/11062b_03c50f8fe4a34cc297a984e483a282ef/1080p/webm/file.webm" type="video/webm"> 
      	  <!--<source src="blueLights.webm" type="video/webm">-->
 	</video>
+	<!-- VIDEO CSS -->
+	<style type="text/css">
+		video#bgvid { 
+	    	position: fixed;
+	    	top: 50%;
+	    	left: 50%;
+	    	min-width: 100%;
+	    	min-height: 100%;
+	    	width: auto;
+	    	height: auto;
+	    	z-index: -100;
+	    	-webkit-transform: translateX(-50%) translateY(-50%);
+	    	transform: translateX(-50%) translateY(-50%);
+	    	background: url(images/background.jpg) no-repeat;
+	    	background-size: cover; 
+		}
+	</style>
   </head>
   <body>
       {% block content %}{% endblock %}
