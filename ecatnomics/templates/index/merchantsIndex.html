@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-hello world
-{{ api }}
+    <ul>
+    {% for merchant in api %}
+        <a href="merchant/{{merchant.id}}">{{ merchant.name }} {{ merchant.category }}</a>
+    {% endfor %}
+    </ul>
 {% endblock %}
