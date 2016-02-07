@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block location %}
+    <div id="store">{{ merchant.name }}</div>
+    <div id="location">{{ merchant.address.city }} {{ merchant.address.state }}, {{ merchant.address.zip }}</div>
+{% endblock %}
 {% block content %}
-    {{ merchant.name }}<br>
-    {{ merchant.address.city }} {{ merchant.address.state }}, {{ merchant.address.zip }}
     {% for cat in api %}
-        <a href="/cat/{{cat.id}}"><img src="{% static cat.image %}" height=200 border=3></a>
+        <a href="/cat/{{cat.id}}"><img src="{% static cat.image %}" height="200" border="3"></a>
     {% endfor %}
     <script>
         document.getElementsByTagName('section') [0].style.backgroundImage = "url({% static 'store.png' %})";
