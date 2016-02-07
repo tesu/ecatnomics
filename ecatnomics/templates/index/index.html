@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-hello world
-{{ api }}
+{% for cat in api %}
+    <a href="cat/{{cat.id}}">{{ cat }}</a>
+{% endfor %}
 {% endblock %}
