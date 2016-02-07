@@ -27,9 +27,11 @@ class IndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         r = requests.get('http://api.reimaginebanking.com/customers?key=813882c1bc1595ded762f6bb22bd9ee0')
-        context['api'] = r.json()
-        for cat in context['api']:
-            cat['id'] = cat['_id']
+        api = r.json()
+        context['api'] = []
+
+        for cat in api:
+            context['api'].append(customer_info(cat['_id']))
         return context
 
 class CustomerView(generic.TemplateView):
