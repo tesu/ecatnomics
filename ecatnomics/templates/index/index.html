@@ -3,7 +3,7 @@
 {% block content %}
     <ul>
     {% for cat in api %}
-        <li><a href="cat/{{cat.id}}">{{ cat.first_name }} {{ cat.last_name }}</a>
+        <li><a href="/cat/{{cat.id}}">{{ cat.first_name }} {{ cat.last_name }}</a>
     {% endfor %}
     </ul>
 {% endblock %}
