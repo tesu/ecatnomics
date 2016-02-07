@@ -2,29 +2,53 @@
 <html lang="en">
   <head>
     <title>eCATnomics Hackathon Webapp</title>
-    <video autoplay loop poster="images/background.jpg" id="bgvid">
-     	  <source src="https://video.wixstatic.com/video/11062b_03c50f8fe4a34cc297a984e483a282ef/1080p/webm/file.webm" type="video/webm"> 
-     	  <!--<source src="blueLights.webm" type="video/webm">-->
-	</video>
 	<!-- VIDEO CSS -->
 	<style type="text/css">
-		video#bgvid { 
-	    	position: fixed;
-	    	top: 50%;
-	    	left: 50%;
-	    	min-width: 100%;
-	    	min-height: 100%;
-	    	width: auto;
-	    	height: auto;
-	    	z-index: -100;
-	    	-webkit-transform: translateX(-50%) translateY(-50%);
-	    	transform: translateX(-50%) translateY(-50%);
-	    	background: url(images/background.jpg) no-repeat;
-	    	background-size: cover; 
+		header {
+		    background-color:black;
+		    color:white;
+		    text-align:center;
+		    padding:5px;	 
+		}
+		nav {
+		    line-height:30px;
+		    background-color:#eeeeee;
+		    height:300px;
+		    width:100px;
+		    float:left;
+		    padding:5px;	      
+		}
+		section {
+		    width:350px;
+		    float:left;
+		    padding:10px;	 	 
+		}
+		footer {
+		    background-color:black;
+		    color:white;
+		    clear:both;
+		    text-align:center;
+		    padding:5px;	 	 
 		}
 	</style>
   </head>
   <body>
-      {% block content %}{% endblock %}
+  	<header>
+		<h1>eCATnomics: Fusing cat collecting and Capital One banking into one game </h1>
+	</header>
+	
+	<nav>
+		Navigation<br>
+		Chat
+	</nav>
+	
+	<section>
+		<h1>Block Content</h1>
+		{% block content %}{% endblock %}
+	</section>
+	
+	<footer>
+		HackTJ 2016
+	</footer>
   </body>
 </html>
