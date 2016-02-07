@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block content %}
     <ul>
     {% for cat in api %}
-        <li><a href="/cat/{{cat.id}}">{{ cat.first_name }} {{ cat.last_name }}</a>
+        <li><a href="/cat/{{cat.id}}">{{ cat.first_name }} {{ cat.last_name }} <img src="{% static cat.image %}"></a>
     {% endfor %}
     </ul>
 {% endblock %}

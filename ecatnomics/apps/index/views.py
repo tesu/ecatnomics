@@ -9,6 +9,7 @@ import requests
 def customer_info(id):
     r = requests.get('http://api.reimaginebanking.com/customers/' + id + '?key=813882c1bc1595ded762f6bb22bd9ee0')
     customer = r.json()
+    customer['id'] = customer['_id']
     r = requests.get('http://api.reimaginebanking.com/customers/' + id + '/accounts?key=813882c1bc1595ded762f6bb22bd9ee0')
     customer['accounts'] = r.json()
     o = 0
