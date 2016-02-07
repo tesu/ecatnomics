@@ -45,6 +45,9 @@ class IndexView(generic.TemplateView):
             context['api'].append(customer_info(cat['_id']))
         return context
 
+class FAQView(generic.TemplateView):
+    template_name = 'index/faq.html'
+
 class CustomerView(generic.TemplateView):
     template_name = 'index/customer.html'
 
