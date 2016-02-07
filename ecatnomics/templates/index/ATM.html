@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block location %}
+    <div id="store">{{ atm.name }}</div>
+{% endblock %}
+{% block content %}
+    {% for cat in api %}
+        <a href="/cat/{{cat.id}}"><img src="{% static cat.image %}" height="200"></a>
+    {% endfor %}
+    <script>
+        var section = document.getElementsByTagName('section') [0];
+        section.style.backgroundImage = "url({% static 'store.png' %})";
+        section.style.backgroundSize = "80% 80%";
+        section.style.backgroundRepeat = "no-repeat";
+        section.style.backgroundColor = "#D1D1D1";
+        section.style.backgroundPosition = "50% 0";
+    </script>
+{% endblock %}
